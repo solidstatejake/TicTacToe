@@ -15,8 +15,9 @@ end
 def grab_player_names
   puts 'Enter a name for player 1: '
   player1 = gets.chomp
-  puts 'Enter a name for player 2: '
+  puts "\nEnter a name for player 2: "
   player2 = gets.chomp
+  puts ''
 
   [player1, player2]
 end

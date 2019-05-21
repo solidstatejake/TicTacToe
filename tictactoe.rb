@@ -17,8 +17,8 @@ class Game
   end
 
   def valid?(move)
-    if @player1.moves.include?(move) || @player2.moves.include?(move) &&
-       (0 < move && move <= 9)
+    if (@player1.moves.include?(move) || @player2.moves.include?(move)) &&
+       (move > 0 && move <= 9)
       false
     else
       true
@@ -53,7 +53,6 @@ class Game
     @winner = check_winner
   end
 
-  # TODO: Figure out how to check for winner.
   def check_winner
     return nil if @player1.turn < 3
 
@@ -71,10 +70,7 @@ class Game
     end
   end
 
-
-
   def play
-
     loop do
       loop do
         player1_turn
@@ -157,6 +153,7 @@ class Game
     end
 
     def display
+      puts ''
       0...3.times do |m|
         0...3.times do |n|
           print " #{@current[m][n]} "
@@ -165,6 +162,7 @@ class Game
         end
         print "\n" if m == 2
       end
+      puts ''
     end
 
     def reset
